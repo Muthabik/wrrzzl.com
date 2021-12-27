@@ -496,7 +496,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="col-md-6 contact-form agile_inner_grids">
 					<h5 class="title-w3">Say Hello</h5>
-					<form id="submit-form" action="https://script.google.com/macros/s/AKfycbxUVTDesFEw1VJedcTGFTxzwJ4oxbBuY4vRIt_n3GMx9vOaik0V9Afxfuxo1diRBDvI/exec" method="post">
+					<form id="submit-form" action="">
 						<div class="fields-grid">
 							<div class="styled-input">
 								<input type="text" name="Full Name" placeholder="Name" required="">
@@ -574,6 +574,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--js for bootstrap working-->
 	<script src="js/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
+	
+		<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbxUVTDesFEw1VJedcTGFTxzwJ4oxbBuY4vRIt_n3GMx9vOaik0V9Afxfuxo1diRBDvI/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("better luck time :)")
+    
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
